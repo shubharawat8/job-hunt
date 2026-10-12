@@ -18,5 +18,8 @@ Phone numbers, flat/home address and referee names/contacts.
 - `states`: footprint grid
 - `roles[]`: timeline; `sector` picks icon/tone (development vs healthcare)
 
+## Links
+- LinkedIn: https://www.linkedin.com/in/dr-sundeep-seth
+
 ## Updating
 Edit `profile.ts`, then add a CHANGELOG entry. `yearsExperience` also feeds the matching engine.

@@ -1,5 +1,6 @@
 import { profile } from "@/data/profile";
 import type { Job, JobLevel } from "@/lib/types";
+import { daysUntil } from "@/lib/dates";
 
 /**
  * Fit score (0–100) of a job against the candidate profile.
@@ -80,6 +81,8 @@ export function fitBand(score: number): FitBand {
 
 export const ACTIVE_STATUSES = ["new", "shortlisted", "applied", "interview", "offer"] as const;
 
-export function isActive(job: Job): boolean {
+/** Open = an active pipeline status and the deadline (if any) not yet passed. */
+export function isActive(job: Job, today: Date = new Date()): boolean {
+  if (job.deadline && daysUntil(job.deadline, today) < 0) return false;
   return (ACTIVE_STATUSES as readonly string[]).includes(job.status);
 }

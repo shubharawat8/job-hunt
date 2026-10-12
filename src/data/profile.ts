@@ -11,7 +11,7 @@ export const profile = {
   tagline: "Turning nutrition policy into district-level delivery",
   location: "Lucknow, Uttar Pradesh",
   email: "drsundeepseth17@gmail.com",
-  linkedin: "https://www.linkedin.com/in/drsundeep-seth",
+  linkedin: "https://www.linkedin.com/in/dr-sundeep-seth",
   yearsExperience: 9,
   currentRole: "State ICDS Consultant · UNICEF India",
   summary:

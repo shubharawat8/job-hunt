@@ -35,5 +35,5 @@ Keywords should use the keys in `KEYWORD_WEIGHTS` (`src/lib/match.ts`) so they s
 `new → shortlisted → applied → interview → offer`, or `rejected` / `closed`. "Open" filter = the first five.
 
 ## Housekeeping
-- When a deadline passes, set `status: "closed"`.
+- Jobs past their `deadline` are automatically excluded from "Open" (`isActive` in `src/lib/match.ts`); still set `status: "closed"` for clarity.
 - Never add a listing that was not actually seen on a portal or search result; mark anything not opened on the portal as `unverified`.

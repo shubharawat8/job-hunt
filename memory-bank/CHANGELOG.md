@@ -2,6 +2,17 @@
 
 All notable changes. Newest first. Format: `## [version] - YYYY-MM-DD`.
 
+## [0.2.0] - 2026-10-12
+### Added
+- 7 DevNetJobsIndia listings relevant to the profile (Nutrition International, NHSRC/MoHFW, MAMTA, KGMU UP, Piramal Foundation, SNEHA), all closed and unverified, sourced from a search-engine index.
+
+### Changed
+- LinkedIn URL → https://www.linkedin.com/in/dr-sundeep-seth
+- `isActive()` now treats a job as closed once its deadline has passed, whatever its status.
+
+### Notes
+- DevNetJobsIndia is still blocked from the build environment; the Premium Jobs section remains unsynced. No open listing matching the profile was found in the search index.
+
 ## [0.1.0] - 2026-10-12
 ### Added
 - Next.js 16 + Tailwind v4 project with claymorphism design system and light/dark mode.
