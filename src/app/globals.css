@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------- Design tokens (see memory-bank/DESIGNS.md) ---------- */
+:root {
+  --bg: #eef1f8;
+  --surface: #f6f7fc;
+  --surface-sunken: #e6e9f3;
+  --ink: #1f2340;
+  --ink-muted: #5b6180;
+  --ink-subtle: #8a90ad;
+  --line: #d9ddea;
+
+  --primary: #6c5ce7;
+  --primary-soft: #e4e0ff;
+  --primary-ink: #ffffff;
+  --teal: #0f9f8f;
+  --teal-soft: #d4f4ef;
+  --peach: #e86f43;
+  --peach-soft: #ffe3d6;
+  --sky: #3b82f6;
+  --sky-soft: #dbe8ff;
+  --lemon: #b7791f;
+  --lemon-soft: #fff1c9;
+  --rose: #d6455d;
+  --rose-soft: #ffdfe5;
+
+  --clay-shadow:
+    10px 10px 24px rgba(150, 162, 196, 0.45),
+    -10px -10px 24px rgba(255, 255, 255, 0.95),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.7),
+    inset -3px -3px 8px rgba(150, 162, 196, 0.2);
+  --clay-shadow-sm:
+    5px 5px 12px rgba(150, 162, 196, 0.4),
+    -5px -5px 12px rgba(255, 255, 255, 0.95),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.7),
+    inset -2px -2px 4px rgba(150, 162, 196, 0.18);
+  --clay-inset:
+    inset 4px 4px 10px rgba(150, 162, 196, 0.45),
+    inset -4px -4px 10px rgba(255, 255, 255, 0.9);
+
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #161a2c;
+  --surface: #1f2439;
+  --surface-sunken: #191d30;
+  --ink: #e9ebf8;
+  --ink-muted: #a6acc8;
+  --ink-subtle: #7d84a6;
+  --line: #2e3450;
+
+  --primary: #9b8cff;
+  --primary-soft: #2f2a5c;
+  --primary-ink: #14122b;
+  --teal: #4fd1c0;
+  --teal-soft: #173f3d;
+  --peach: #ff9f7a;
+  --peach-soft: #4a2a22;
+  --sky: #7fb0ff;
+  --sky-soft: #1e3156;
+  --lemon: #f5c869;
+  --lemon-soft: #44391c;
+  --rose: #ff8da0;
+  --rose-soft: #4a2230;
+
+  --clay-shadow:
+    10px 10px 24px rgba(0, 0, 0, 0.5),
+    -8px -8px 20px rgba(255, 255, 255, 0.035),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.06),
+    inset -3px -3px 8px rgba(0, 0, 0, 0.3);
+  --clay-shadow-sm:
+    5px 5px 12px rgba(0, 0, 0, 0.45),
+    -4px -4px 10px rgba(255, 255, 255, 0.03),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.06),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.3);
+  --clay-inset:
+    inset 4px 4px 10px rgba(0, 0, 0, 0.5),
+    inset -3px -3px 8px rgba(255, 255, 255, 0.04);
+
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-sunken: var(--surface-sunken);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-subtle: var(--ink-subtle);
+  --color-line: var(--line);
+  --color-primary: var(--primary);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-ink: var(--primary-ink);
+  --color-teal: var(--teal);
+  --color-teal-soft: var(--teal-soft);
+  --color-peach: var(--peach);
+  --color-peach-soft: var(--peach-soft);
+  --color-sky: var(--sky);
+  --color-sky-soft: var(--sky-soft);
+  --color-lemon: var(--lemon);
+  --color-lemon-soft: var(--lemon-soft);
+  --color-rose: var(--rose);
+  --color-rose-soft: var(--rose-soft);
+
+  --shadow-clay: var(--clay-shadow);
+  --shadow-clay-sm: var(--clay-shadow-sm);
+  --shadow-clay-inset: var(--clay-inset);
+
+  --radius-clay: 2rem;
+
+  --font-sans: "Nunito Variable", ui-rounded, system-ui, sans-serif;
+
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--primary-soft);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
